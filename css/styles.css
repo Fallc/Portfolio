@@ -1,0 +1,280 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Graphik;
+    src: url(../fonts/Graphik-Regular.otf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Graphik;
+    src: url(../fonts/Graphik-Light.otf);
+    font-weight: 200;
+}
+
+nav {
+    min-height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Graphik', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1;
+    opacity: 1;
+}
+
+nav a {
+    color: #ff2247;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-links li {
+    list-style: none;
+    margin-right: 1.5rem;
+    position: relative;
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #2247ff;
+    transform-origin: center center;
+    transition: transform 0.20s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.nav-links a:hover::before {
+    transform: scaleX(1);
+}
+
+.nav-links a:hover {
+    color: #2247ff;
+    transition: color 0.20s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.active {
+    color: #2247ff;
+    border-bottom: 2px solid #2247ff;
+    padding-bottom: 3px;
+}
+
+/* .name a {
+    font-family: "Source Code Pro";
+} */
+
+/* .name:hover {
+    animation: cycleFont 2s infinite;
+} */
+
+.menu {
+    display: none;
+    cursor: pointer;
+}
+
+.menu div {
+    width: 25px;
+    height: 2px;
+    background-color: #ff2247;
+    margin: 5px;
+    transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.content {
+    margin: 2rem auto;
+    animation: fadeIn;
+    animation-duration: 0.8s;
+    animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.about-content {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+.about-wrapper {
+    width: 70%;
+    margin: auto;
+}
+
+.about-text {
+    font-family: 'Graphik', sans-serif;
+    font-size: 3rem;
+    font-weight: 200;
+    color: #2247ff;
+}
+
+.contact {
+    margin-top: 3rem;
+    font-family: 'Graphik', sans-serif;
+    font-size: 2rem;
+    font-weight: 200;
+    color: #2247ff;
+}
+
+.contact h3 {
+    font-size: 1rem;
+    letter-spacing: 0.5rem;
+}
+
+.contact a {
+    text-decoration: none;
+}
+
+.imglist {
+    margin: 0 auto;
+    text-align: center !important;
+}
+
+img {
+    padding: 0.25rem;
+}
+
+.fancybox-infobar {
+    font-family: "Graphik", sans-serif;
+    font-weight: 400;
+}
+
+.fancybox-navigation .fancybox-button {
+    color: white;
+    background: #ff2247;
+}
+
+.fancybox-navigation .fancybox-button:hover {
+    color: #2247ff;
+}
+
+video {
+    width: 80%;
+    margin: 2rem auto;
+    display: block;
+    z-index: 0;
+}
+
+iframe {
+    display: block;
+    margin: 2rem auto;
+}
+
+footer {
+    font-family: 'Graphik', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    opacity: 1;
+    color: black;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 1rem 0;
+}
+
+@keyframes cycleFont {
+    0% {
+        font-family: 'Italiana';
+    }
+
+    25% {
+        font-family: 'Faster One';
+    }
+
+    50% {
+        font-family: 'Krona One';
+    }
+
+    75% {
+        font-family: 'Creepster';
+    }
+
+    100% {
+        font-family: 'Source Code Pro';
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        background-color: #ff2247;
+        clip-path: circle(0px at 21% 5%);
+        -webkit-clip-path: circle(0px at 21% 5%);
+        transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+
+    .nav-links.open {
+        clip-path: circle(1100px at 21% 5%);
+        -webkit-clip-path: circle(1100px at 21% 5%);
+    }
+
+    .nav-links li a {
+        opacity: 0;
+        color: white;
+        font-size: 2rem;
+    }
+
+    .menu {
+        display: block;
+        z-index: 2;
+    }
+
+    @keyframes linkFade {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    .toggle .line-1 {
+        transform: rotate(-45deg) translate(-5px, 4.5px);
+        background-color: white;
+    }
+
+    .toggle .line-2 {
+        opacity: 0;
+        background-color: white;
+    }
+
+    .toggle .line-3 {
+        transform: rotate(45deg) translate(-5px, -5.5px);
+        background-color: white;
+    }
+
+    video.covered {
+        display: none;
+    }
+}
